@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DnD Dice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>DnD Dice</h1>
+    <h2>Select a Dice to Roll</h2>
+<select class="select" id="mySelect" name="randomName">
+  <option value="--">Select a Dice to Roll</option>
+  <option value="form1">D4</option>
+  <option value="form2">D6</option>
+  <option value="form3">D8</option>
+  <option value="form4">D10</option>
+  <option value="form5">D12</option>
+  <option value="form6">D20</option>
+  <option value="form9">D100</option>
+  <option value="form7">10s Dice</option>
+  <option value="form8">20s Dice</option>
+</select>
+
+<button onclick="RollD4()" id="form1" class="forms">Roll D4</button>
+<button onclick="RollD6()" id="form2" class="forms">Roll D6</button>
+<button onclick="RollD8()" id="form3" class="forms">Roll D8</button>
+<button onclick="RollD10()" id="form4" class="forms">Roll D10</button>
+<button onclick="RollD12()" id="form5" class="forms">Roll D12</button>
+<button onclick="RollD20()" id="form6" class="forms">Roll D20</button>
+<button onclick="Roll10s()" id="form7" class="forms">Roll 10s</button>
+<button onclick="Roll20s()" id="form8" class="forms">Roll 20s</button>
+<button onclick="RollD100()" id="form9" class="forms">Roll D100</button>
+  
+<h1 class="yourRoll">Your Roll</h1>
+<p id="rollResult"></p>
+</div>
+
+<script>
+        
+    $('.select').change(function() {
+var formId = $(this).val().replace(/(form\d+)[a-z]*$/,'$1');
+$('.forms').hide(); 
+$('[id^=' + formId+']').show(); 
+});
+
+</script>
+
+</body>
+</html>
